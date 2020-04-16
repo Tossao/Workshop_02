@@ -3,26 +3,21 @@ package pl.coderslab.model;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class User {
-
     private int id;
     private String name;
     private String email;
     private String password;
     private int userGroupId;
 
-    public User(int id, String name, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-
     public User(int id, String name, String email, String password, int userGroupId) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.hashPassword(password);
+        this.password = password;
         this.userGroupId = userGroupId;
+    }
+
+    public User() {
     }
 
     public void hashPassword(String password) {
@@ -37,11 +32,11 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
+    public String getName() {
         return name;
     }
 
-    public void setUsername(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -67,9 +62,5 @@ public class User {
 
     public void setUserGroupId(int userGroupId) {
         this.userGroupId = userGroupId;
-    }
-
-    public String toString(){
-        return this.id + " " + this.name + " " + this.email + " " + this.password + " " + this.userGroupId;
     }
 }
